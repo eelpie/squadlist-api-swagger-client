@@ -23,73 +23,74 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
- * AvailabilityOption
+ * Change
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-22T22:14:03.822+01:00")
-public class AvailabilityOption {
-  @SerializedName("id")
-  private String id = null;
+public class Change {
+  @SerializedName("title")
+  private String title = null;
 
-  @SerializedName("label")
-  private String label = null;
+  @SerializedName("description")
+  private String description = null;
 
-  @SerializedName("colour")
-  private String colour = null;
+  @SerializedName("date")
+  private OffsetDateTime date = null;
 
-  public AvailabilityOption id(String id) {
-    this.id = id;
+  public Change title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get title
+   * @return title
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getId() {
-    return id;
+  @ApiModelProperty(value = "")
+  public String getTitle() {
+    return title;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
-  public AvailabilityOption label(String label) {
-    this.label = label;
+  public Change description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get label
-   * @return label
+   * Get description
+   * @return description
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getLabel() {
-    return label;
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
   }
 
-  public void setLabel(String label) {
-    this.label = label;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public AvailabilityOption colour(String colour) {
-    this.colour = colour;
+  public Change date(OffsetDateTime date) {
+    this.date = date;
     return this;
   }
 
    /**
-   * Get colour
-   * @return colour
+   * Get date
+   * @return date
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getColour() {
-    return colour;
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getDate() {
+    return date;
   }
 
-  public void setColour(String colour) {
-    this.colour = colour;
+  public void setDate(OffsetDateTime date) {
+    this.date = date;
   }
 
 
@@ -101,26 +102,26 @@ public class AvailabilityOption {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AvailabilityOption availabilityOption = (AvailabilityOption) o;
-    return Objects.equals(this.id, availabilityOption.id) &&
-        Objects.equals(this.label, availabilityOption.label) &&
-        Objects.equals(this.colour, availabilityOption.colour);
+    Change change = (Change) o;
+    return Objects.equals(this.title, change.title) &&
+        Objects.equals(this.description, change.description) &&
+        Objects.equals(this.date, change.date);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, label, colour);
+    return Objects.hash(title, description, date);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AvailabilityOption {\n");
+    sb.append("class Change {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
-    sb.append("    colour: ").append(toIndentedString(colour)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("}");
     return sb.toString();
   }

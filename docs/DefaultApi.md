@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 <a name="changeLogGet"></a>
 # **changeLogGet**
-> changeLogGet()
+> List&lt;Change&gt; changeLogGet()
 
 
 
@@ -42,7 +42,8 @@ Recent changes to the system.
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    apiInstance.changeLogGet();
+    List<Change> result = apiInstance.changeLogGet();
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#changeLogGet");
     e.printStackTrace();
@@ -54,7 +55,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+[**List&lt;Change&gt;**](Change.md)
 
 ### Authorization
 

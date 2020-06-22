@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import uk.co.squadlist.model.swagger.Availability;
 import uk.co.squadlist.model.swagger.Boat;
+import uk.co.squadlist.model.swagger.Change;
 import uk.co.squadlist.model.swagger.Instance;
 import uk.co.squadlist.model.swagger.Member;
 import uk.co.squadlist.model.swagger.OAuthError;
@@ -124,21 +125,24 @@ public class DefaultApi {
     /**
      * 
      * Recent changes to the system.
+     * @return List&lt;Change&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void changeLogGet() throws ApiException {
-        changeLogGetWithHttpInfo();
+    public List<Change> changeLogGet() throws ApiException {
+        ApiResponse<List<Change>> resp = changeLogGetWithHttpInfo();
+        return resp.getData();
     }
 
     /**
      * 
      * Recent changes to the system.
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;List&lt;Change&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> changeLogGetWithHttpInfo() throws ApiException {
+    public ApiResponse<List<Change>> changeLogGetWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = changeLogGetValidateBeforeCall(null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<List<Change>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -148,7 +152,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call changeLogGetAsync(final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call changeLogGetAsync(final ApiCallback<List<Change>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,7 +174,8 @@ public class DefaultApi {
         }
 
         com.squareup.okhttp.Call call = changeLogGetValidateBeforeCall(progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<List<Change>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
