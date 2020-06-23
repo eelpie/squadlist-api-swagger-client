@@ -1,3 +1,2 @@
 wget https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.14/swagger-codegen-cli-2.4.14.jar -O swagger-codegen-cli.jar
-java -jar swagger-codegen-cli.jar generate -i https://api.squadlist.co.uk/swagger.json -l java --api-package=uk\.co\.squadlist\.client\.swagger.api --model-package=uk\.co\.squadlist.\model\.swagger --group-id uk.co.squadlist --artifact-id squadlist-api-swagger-client --artifact-version 0.0.1-SNAPSHOT -l java
-
+java -jar swagger-codegen-cli.jar generate -i https://api.squadlist.co.uk/swagger.json -c java-config.json -l java

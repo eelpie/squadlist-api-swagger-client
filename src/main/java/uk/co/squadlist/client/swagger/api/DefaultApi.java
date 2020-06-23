@@ -33,7 +33,7 @@ import uk.co.squadlist.model.swagger.Change;
 import uk.co.squadlist.model.swagger.Instance;
 import uk.co.squadlist.model.swagger.Member;
 import uk.co.squadlist.model.swagger.OAuthError;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 import uk.co.squadlist.model.swagger.Outing;
 import uk.co.squadlist.model.swagger.Squad;
 import uk.co.squadlist.model.swagger.SubscriptionRequest;

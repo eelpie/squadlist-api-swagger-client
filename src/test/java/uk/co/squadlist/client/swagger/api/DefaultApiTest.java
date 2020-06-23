@@ -16,10 +16,11 @@ package uk.co.squadlist.client.swagger.api;
 import uk.co.squadlist.client.swagger.ApiException;
 import uk.co.squadlist.model.swagger.Availability;
 import uk.co.squadlist.model.swagger.Boat;
+import uk.co.squadlist.model.swagger.Change;
 import uk.co.squadlist.model.swagger.Instance;
 import uk.co.squadlist.model.swagger.Member;
 import uk.co.squadlist.model.swagger.OAuthError;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 import uk.co.squadlist.model.swagger.Outing;
 import uk.co.squadlist.model.swagger.Squad;
 import uk.co.squadlist.model.swagger.SubscriptionRequest;
@@ -52,7 +53,7 @@ public class DefaultApiTest {
      */
     @Test
     public void changeLogGetTest() throws ApiException {
-        api.changeLogGet();
+        List<Change> response = api.changeLogGet();
 
         // TODO: test validations
     }

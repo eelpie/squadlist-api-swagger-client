@@ -23,15 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 import uk.co.squadlist.model.swagger.Subscription;
 
 /**
  * Instance
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-22T22:14:03.822+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-23T12:06:48.563+01:00")
 public class Instance {
   @SerializedName("id")
   private String id = null;
@@ -46,7 +46,7 @@ public class Instance {
   private Boolean availabilityVisible = null;
 
   @SerializedName("subscriptions")
-  private List<Subscription> subscriptions = new ArrayList<Subscription>();
+  private List<Subscription> subscriptions = new ArrayList<>();
 
   @SerializedName("created")
   private OffsetDateTime created = null;

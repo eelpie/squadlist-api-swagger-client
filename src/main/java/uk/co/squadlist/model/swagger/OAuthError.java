@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * OAuthError
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-22T22:14:03.822+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-23T12:06:48.563+01:00")
 public class OAuthError {
   @SerializedName("message")
   private String message = null;
