@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * Tariff
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-06-23T12:06:48.563+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-01T17:42:03.135+01:00")
 public class Tariff {
   @SerializedName("id")
   private String id = null;

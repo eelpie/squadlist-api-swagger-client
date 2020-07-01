@@ -1413,21 +1413,24 @@ public class DefaultApi {
     /**
      * 
      * Generates a list of suggested passwords
+     * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void passwordSuggestionsGet() throws ApiException {
-        passwordSuggestionsGetWithHttpInfo();
+    public List<String> passwordSuggestionsGet() throws ApiException {
+        ApiResponse<List<String>> resp = passwordSuggestionsGetWithHttpInfo();
+        return resp.getData();
     }
 
     /**
      * 
      * Generates a list of suggested passwords
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> passwordSuggestionsGetWithHttpInfo() throws ApiException {
+    public ApiResponse<List<String>> passwordSuggestionsGetWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = passwordSuggestionsGetValidateBeforeCall(null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -1437,7 +1440,7 @@ public class DefaultApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call passwordSuggestionsGetAsync(final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call passwordSuggestionsGetAsync(final ApiCallback<List<String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1459,7 +1462,8 @@ public class DefaultApi {
         }
 
         com.squareup.okhttp.Call call = passwordSuggestionsGetValidateBeforeCall(progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**

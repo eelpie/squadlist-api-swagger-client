@@ -491,7 +491,7 @@ No authorization required
 
 <a name="passwordSuggestionsGet"></a>
 # **passwordSuggestionsGet**
-> passwordSuggestionsGet()
+> List&lt;String&gt; passwordSuggestionsGet()
 
 
 
@@ -506,7 +506,8 @@ Generates a list of suggested passwords
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    apiInstance.passwordSuggestionsGet();
+    List<String> result = apiInstance.passwordSuggestionsGet();
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#passwordSuggestionsGet");
     e.printStackTrace();
@@ -518,7 +519,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-null (empty response body)
+**List&lt;String&gt;**
 
 ### Authorization
 
