@@ -20,9 +20,10 @@ import uk.co.squadlist.model.swagger.Change;
 import uk.co.squadlist.model.swagger.Instance;
 import uk.co.squadlist.model.swagger.Member;
 import uk.co.squadlist.model.swagger.OAuthError;
-import java.time.OffsetDateTime;
+import org.threeten.bp.OffsetDateTime;
 import uk.co.squadlist.model.swagger.Outing;
 import uk.co.squadlist.model.swagger.Squad;
+import uk.co.squadlist.model.swagger.Statistics;
 import uk.co.squadlist.model.swagger.SubscriptionRequest;
 import uk.co.squadlist.model.swagger.SubscriptionRequestSubmission;
 import uk.co.squadlist.model.swagger.Tariff;
@@ -125,6 +126,38 @@ public class DefaultApiTest {
     /**
      * 
      *
+     * List of members for this club
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void instancesInstanceMembersGetTest() throws ApiException {
+        String instance = null;
+        List<Member> response = api.instancesInstanceMembersGet(instance);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Usage statistics for this club
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void instancesInstanceStatisticsGetTest() throws ApiException {
+        String instance = null;
+        List<Statistics> response = api.instancesInstanceStatisticsGet(instance);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * Details of a single member
      *
      * @throws ApiException
@@ -218,7 +251,7 @@ public class DefaultApiTest {
      */
     @Test
     public void passwordSuggestionsGetTest() throws ApiException {
-        api.passwordSuggestionsGet();
+        List<String> response = api.passwordSuggestionsGet();
 
         // TODO: test validations
     }

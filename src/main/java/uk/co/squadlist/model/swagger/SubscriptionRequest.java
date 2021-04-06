@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SubscriptionRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-01T17:42:03.135+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-06T09:59:33.441+01:00")
 public class SubscriptionRequest {
   @SerializedName("id")
   private String id = null;

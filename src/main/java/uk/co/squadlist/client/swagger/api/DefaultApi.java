@@ -33,9 +33,10 @@ import uk.co.squadlist.model.swagger.Change;
 import uk.co.squadlist.model.swagger.Instance;
 import uk.co.squadlist.model.swagger.Member;
 import uk.co.squadlist.model.swagger.OAuthError;
-import java.time.OffsetDateTime;
+import org.threeten.bp.OffsetDateTime;
 import uk.co.squadlist.model.swagger.Outing;
 import uk.co.squadlist.model.swagger.Squad;
+import uk.co.squadlist.model.swagger.Statistics;
 import uk.co.squadlist.model.swagger.SubscriptionRequest;
 import uk.co.squadlist.model.swagger.SubscriptionRequestSubmission;
 import uk.co.squadlist.model.swagger.Tariff;
@@ -667,6 +668,252 @@ public class DefaultApi {
 
         com.squareup.okhttp.Call call = instancesInstanceBoatsIdGetValidateBeforeCall(instance, id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Boat>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for instancesInstanceMembersGet
+     * @param instance The id of the club (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call instancesInstanceMembersGetCall(String instance, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance}/members"
+            .replaceAll("\\{" + "instance" + "\\}", apiClient.escapeString(instance.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call instancesInstanceMembersGetValidateBeforeCall(String instance, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'instance' is set
+        if (instance == null) {
+            throw new ApiException("Missing the required parameter 'instance' when calling instancesInstanceMembersGet(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = instancesInstanceMembersGetCall(instance, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * List of members for this club
+     * @param instance The id of the club (required)
+     * @return List&lt;Member&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Member> instancesInstanceMembersGet(String instance) throws ApiException {
+        ApiResponse<List<Member>> resp = instancesInstanceMembersGetWithHttpInfo(instance);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * List of members for this club
+     * @param instance The id of the club (required)
+     * @return ApiResponse&lt;List&lt;Member&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Member>> instancesInstanceMembersGetWithHttpInfo(String instance) throws ApiException {
+        com.squareup.okhttp.Call call = instancesInstanceMembersGetValidateBeforeCall(instance, null, null);
+        Type localVarReturnType = new TypeToken<List<Member>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * List of members for this club
+     * @param instance The id of the club (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call instancesInstanceMembersGetAsync(String instance, final ApiCallback<List<Member>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = instancesInstanceMembersGetValidateBeforeCall(instance, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Member>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for instancesInstanceStatisticsGet
+     * @param instance The id of the club (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call instancesInstanceStatisticsGetCall(String instance, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance}/statistics"
+            .replaceAll("\\{" + "instance" + "\\}", apiClient.escapeString(instance.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call instancesInstanceStatisticsGetValidateBeforeCall(String instance, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'instance' is set
+        if (instance == null) {
+            throw new ApiException("Missing the required parameter 'instance' when calling instancesInstanceStatisticsGet(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = instancesInstanceStatisticsGetCall(instance, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * 
+     * Usage statistics for this club
+     * @param instance The id of the club (required)
+     * @return List&lt;Statistics&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Statistics> instancesInstanceStatisticsGet(String instance) throws ApiException {
+        ApiResponse<List<Statistics>> resp = instancesInstanceStatisticsGetWithHttpInfo(instance);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * Usage statistics for this club
+     * @param instance The id of the club (required)
+     * @return ApiResponse&lt;List&lt;Statistics&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Statistics>> instancesInstanceStatisticsGetWithHttpInfo(String instance) throws ApiException {
+        com.squareup.okhttp.Call call = instancesInstanceStatisticsGetValidateBeforeCall(instance, null, null);
+        Type localVarReturnType = new TypeToken<List<Statistics>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Usage statistics for this club
+     * @param instance The id of the club (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call instancesInstanceStatisticsGetAsync(String instance, final ApiCallback<List<Statistics>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = instancesInstanceStatisticsGetValidateBeforeCall(instance, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Statistics>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1513,7 +1760,7 @@ public class DefaultApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "api" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

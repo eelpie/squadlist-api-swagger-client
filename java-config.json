@@ -1,9 +1,0 @@
-{
-  "java8": true,
-  "dateLibrary": "java8",
-  "apiPackage": "uk.co.squadlist.client.swagger.api",
-  "groupId": "uk.co.squadlist",
-  "modelPackage": "uk.co.squadlist.model.swagger",
-  "artifactId": "squadlist-api-swagger-client",
-  "artifactVersion": "0.0.1-SNAPSHOT"
-}

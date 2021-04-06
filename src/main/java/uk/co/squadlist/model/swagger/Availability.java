@@ -30,7 +30,7 @@ import uk.co.squadlist.model.swagger.Outing;
 /**
  * Availability
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-01T17:42:03.135+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-06T09:59:33.441+01:00")
 public class Availability {
   @SerializedName("member")
   private Member member = null;

@@ -23,13 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import org.threeten.bp.OffsetDateTime;
 import uk.co.squadlist.model.swagger.Squad;
 
 /**
  * Outing
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-01T17:42:03.135+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-04-06T09:59:33.441+01:00")
 public class Outing {
   @SerializedName("id")
   private String id = null;

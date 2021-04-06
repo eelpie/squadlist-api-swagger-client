@@ -1,6 +1,6 @@
 # DefaultApi
 
-All URIs are relative to *https://api.squadlist.co.uk*
+All URIs are relative to *https://api.squadlist.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**instancesIdGet**](DefaultApi.md#instancesIdGet) | **GET** /instances/{id} | 
 [**instancesInstanceBoatsGet**](DefaultApi.md#instancesInstanceBoatsGet) | **GET** /instances/{instance}/boats | 
 [**instancesInstanceBoatsIdGet**](DefaultApi.md#instancesInstanceBoatsIdGet) | **GET** /instances/{instance}/boats/{id} | 
+[**instancesInstanceMembersGet**](DefaultApi.md#instancesInstanceMembersGet) | **GET** /instances/{instance}/members | 
+[**instancesInstanceStatisticsGet**](DefaultApi.md#instancesInstanceStatisticsGet) | **GET** /instances/{instance}/statistics | 
 [**membersIdGet**](DefaultApi.md#membersIdGet) | **GET** /members/{id} | 
 [**outingsGet**](DefaultApi.md#outingsGet) | **GET** /outings | Outings
 [**outingsIdAvailabilityGet**](DefaultApi.md#outingsIdAvailabilityGet) | **GET** /outings/{id}/availability | 
@@ -246,6 +248,112 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="instancesInstanceMembersGet"></a>
+# **instancesInstanceMembersGet**
+> List&lt;Member&gt; instancesInstanceMembersGet(instance)
+
+
+
+List of members for this club
+
+### Example
+```java
+// Import classes:
+//import uk.co.squadlist.client.swagger.ApiClient;
+//import uk.co.squadlist.client.swagger.ApiException;
+//import uk.co.squadlist.client.swagger.Configuration;
+//import uk.co.squadlist.client.swagger.auth.*;
+//import uk.co.squadlist.client.swagger.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: api
+OAuth api = (OAuth) defaultClient.getAuthentication("api");
+api.setAccessToken("YOUR ACCESS TOKEN");
+
+DefaultApi apiInstance = new DefaultApi();
+String instance = "instance_example"; // String | The id of the club
+try {
+    List<Member> result = apiInstance.instancesInstanceMembersGet(instance);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#instancesInstanceMembersGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance** | **String**| The id of the club |
+
+### Return type
+
+[**List&lt;Member&gt;**](Member.md)
+
+### Authorization
+
+[api](../README.md#api)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="instancesInstanceStatisticsGet"></a>
+# **instancesInstanceStatisticsGet**
+> List&lt;Statistics&gt; instancesInstanceStatisticsGet(instance)
+
+
+
+Usage statistics for this club
+
+### Example
+```java
+// Import classes:
+//import uk.co.squadlist.client.swagger.ApiClient;
+//import uk.co.squadlist.client.swagger.ApiException;
+//import uk.co.squadlist.client.swagger.Configuration;
+//import uk.co.squadlist.client.swagger.auth.*;
+//import uk.co.squadlist.client.swagger.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: api
+OAuth api = (OAuth) defaultClient.getAuthentication("api");
+api.setAccessToken("YOUR ACCESS TOKEN");
+
+DefaultApi apiInstance = new DefaultApi();
+String instance = "instance_example"; // String | The id of the club
+try {
+    List<Statistics> result = apiInstance.instancesInstanceStatisticsGet(instance);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#instancesInstanceStatisticsGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance** | **String**| The id of the club |
+
+### Return type
+
+[**List&lt;Statistics&gt;**](Statistics.md)
+
+### Authorization
+
+[api](../README.md#api)
 
 ### HTTP request headers
 
@@ -541,9 +649,17 @@ List of squads for this club
 ### Example
 ```java
 // Import classes:
+//import uk.co.squadlist.client.swagger.ApiClient;
 //import uk.co.squadlist.client.swagger.ApiException;
+//import uk.co.squadlist.client.swagger.Configuration;
+//import uk.co.squadlist.client.swagger.auth.*;
 //import uk.co.squadlist.client.swagger.api.DefaultApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: api
+OAuth api = (OAuth) defaultClient.getAuthentication("api");
+api.setAccessToken("YOUR ACCESS TOKEN");
 
 DefaultApi apiInstance = new DefaultApi();
 String instance = "instance_example"; // String | The id of the club
@@ -568,7 +684,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api](../README.md#api)
 
 ### HTTP request headers
 
